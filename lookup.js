@@ -6,4 +6,8 @@ const data = fs.readFileSync('db.txt', 'utf-8').split('\n');
 
 const result = data.find(l => l.startsWith(`${key}:`));
 
-console.log(`Value for key "${key}" was: "${result.split(':')[1]}"`);
+if (result === undefined) {
+  console.log(`/!\\ Could not find value for key "${key}"`)
+} else {
+  console.log(`Value for key "${key}" was: "${result.split(':')[1]}"`);
+}
